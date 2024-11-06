@@ -1,9 +1,8 @@
-from fastapi import FastAPI
-import socket
+from fastapi import FastAPI, Request
 
 app = FastAPI()
 
 @app.get("/")
-async def root():
-    ip = socket.gethostbyname(socket.getfqdn())
+async def root(request: Request):
+    ip = request.client.host
     return ip

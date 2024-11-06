@@ -5,4 +5,5 @@ app = FastAPI()
 @app.get("/")
 async def root(request: Request):
     ip = request.client.host
-    return ip
+    ret = f"Your IP: {ip}"
+    return ret

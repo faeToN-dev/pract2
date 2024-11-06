@@ -1,9 +1,9 @@
 from fastapi import FastAPI
-import pymyip
+import socket
 
 app = FastAPI()
 
 @app.get("/")
 async def root():
-    ip = pymyip.get_ip()
+    ip = socket.gethostbyname(socket.getfqdn())
     return ip
